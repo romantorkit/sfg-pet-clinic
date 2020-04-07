@@ -11,8 +11,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode
-public class Person {
+@EqualsAndHashCode(callSuper = false)
+public class Person extends BaseEntity{
     private String firstName;
     private String lastName;
 }

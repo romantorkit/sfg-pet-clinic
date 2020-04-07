@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class PetType {
+@EqualsAndHashCode(callSuper = false)
+public class PetType extends BaseEntity{
     private String name;
 }
