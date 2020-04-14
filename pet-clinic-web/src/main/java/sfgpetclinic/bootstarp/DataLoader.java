@@ -17,6 +17,8 @@ import sfgpetclinic.service.VetService;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.HashSet;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -84,7 +86,7 @@ public class DataLoader implements CommandLineRunner {
         pet2.setPetType(catType);
         pet2.setName("Cat");
         pet2.setBirthDate(LocalDate.now());
-        owner2.setPet(pet2);
+        owner2.setPets(new HashSet<Pet>(Arrays.asList(pet2)));
         ownerService.save(owner2);
         pet2.setOwner(owner2);
         petService.save(pet2);
@@ -97,7 +99,7 @@ public class DataLoader implements CommandLineRunner {
         pet3.setPetType(dogType);
         pet3.setBirthDate(LocalDate.of(2015, 7, 27));
         pet3.setName("Hans");
-        owner3.setPet(pet3);
+        owner3.setPets(new HashSet<Pet>(Arrays.asList(pet3)));
         ownerService.save(owner3);
         pet3.setOwner(owner3);
         petService.save(pet3);

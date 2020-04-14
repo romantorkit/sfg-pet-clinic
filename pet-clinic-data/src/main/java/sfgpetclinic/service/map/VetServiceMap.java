@@ -1,5 +1,6 @@
 package sfgpetclinic.service.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import sfgpetclinic.model.Vet;
 import sfgpetclinic.service.VetService;
@@ -7,6 +8,7 @@ import sfgpetclinic.service.VetService;
 import java.util.Set;
 
 @Service
+@Profile("local")
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {

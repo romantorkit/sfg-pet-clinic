@@ -2,9 +2,12 @@ package sfgpetclinic.model;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+
 /**
  * Created by romantorkit on 12/2/19
  */
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
