@@ -17,8 +17,6 @@ import sfgpetclinic.service.VetService;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.HashSet;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -76,33 +74,40 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Diane");
         owner1.setLastName("Kruger");
+        owner1.setAddress("234 Cottman ave");
+        owner1.setCity("Philadelphia");
+        owner1.setTelephone("(267) 588-2297");
         ownerService.save(owner1);
         System.out.println(owner1.toString());
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Eva");
         owner2.setLastName("Green");
+        owner2.setAddress("234 Cottman ave");
+        owner2.setCity("Philadelphia");
+        owner2.setTelephone("(267) 588-2297");
         Pet pet2 = new Pet();
         pet2.setPetType(catType);
         pet2.setName("Cat");
         pet2.setBirthDate(LocalDate.now());
-        owner2.setPets(new HashSet<Pet>(Arrays.asList(pet2)));
-        ownerService.save(owner2);
+        owner2.getPets().add(pet2);
         pet2.setOwner(owner2);
-        petService.save(pet2);
+        ownerService.save(owner2);
         System.out.println(owner2.toString());
 
         Owner owner3 = new Owner();
         owner3.setFirstName(firstName);
         owner3.setLastName(lastName);
+        owner3.setAddress("234 Cottman ave");
+        owner3.setCity("Philadelphia");
+        owner3.setTelephone("(267) 588-2297");
         Pet pet3 = new Pet();
         pet3.setPetType(dogType);
         pet3.setBirthDate(LocalDate.of(2015, 7, 27));
         pet3.setName("Hans");
-        owner3.setPets(new HashSet<Pet>(Arrays.asList(pet3)));
-        ownerService.save(owner3);
+        owner3.getPets().add(pet3);
         pet3.setOwner(owner3);
-        petService.save(pet3);
+        ownerService.save(owner3);
         System.out.println(owner3.toString());
 
         Vet vet1 = new Vet();

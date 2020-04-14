@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -30,5 +31,5 @@ public class Pet extends BaseEntity{
     @EqualsAndHashCode.Exclude
     private Owner owner;
     @OneToMany(mappedBy = "pet")
-    private Set<Visit> visits;
+    private Set<Visit> visits = new HashSet<>();
 }
