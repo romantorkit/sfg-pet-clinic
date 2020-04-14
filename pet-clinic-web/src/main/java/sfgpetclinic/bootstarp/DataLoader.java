@@ -61,6 +61,10 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        loadData();
+    }
+
+    private void loadData() {
         PetType dogType = new PetType("dog");
         petTypeService.save(dogType);
         System.out.println(dogType);
