@@ -8,9 +8,10 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
+@RequiredArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class Speciality extends BaseEntity{
-
+    @NonNull
     private String description;
 }
