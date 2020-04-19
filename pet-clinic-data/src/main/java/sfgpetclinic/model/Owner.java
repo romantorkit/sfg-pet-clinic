@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ import java.util.Set;
  * Created by romantorkit on 12/2/19
  */
 @Entity
+@Table(name = "owners")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,6 +23,6 @@ public class Owner extends Person {
     private String address;
     private String city;
     private String telephone;
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private Set<Pet> pets = new HashSet<>();
 }

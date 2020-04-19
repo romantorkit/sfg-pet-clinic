@@ -2,10 +2,7 @@ package sfgpetclinic.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +11,7 @@ import java.util.Set;
  * Created by romantorkit on 12/2/19
  */
 @Entity
+@Table(name = "pets")
 @Getter
 @Setter
 @NoArgsConstructor

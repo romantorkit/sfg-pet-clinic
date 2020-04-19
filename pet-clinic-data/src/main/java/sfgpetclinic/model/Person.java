@@ -1,13 +1,18 @@
 package sfgpetclinic.model;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.MappedSuperclass;
 
 /**
  * Created by romantorkit on 12/2/19
  */
+@MappedSuperclass
 @Getter
 @Setter
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Person extends BaseEntity{

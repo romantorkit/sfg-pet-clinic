@@ -3,11 +3,13 @@ package sfgpetclinic.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Created by romantorkit on 12/2/19
  */
 @Entity
+@Table(name = "pet_types")
 @Getter
 @Setter
 @NoArgsConstructor
