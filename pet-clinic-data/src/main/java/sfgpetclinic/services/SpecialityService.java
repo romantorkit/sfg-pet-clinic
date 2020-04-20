@@ -1,4 +1,4 @@
-package sfgpetclinic.service;
+package sfgpetclinic.services;
 
 import sfgpetclinic.model.Speciality;
 

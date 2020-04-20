@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import sfgpetclinic.model.*;
 import sfgpetclinic.properties.Vet1;
 import sfgpetclinic.properties.Vet2;
-import sfgpetclinic.service.*;
+import sfgpetclinic.services.*;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
