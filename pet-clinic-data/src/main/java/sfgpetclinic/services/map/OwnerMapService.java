@@ -10,7 +10,6 @@ import sfgpetclinic.services.PetTypeService;
 import java.util.Set;
 
 @Service
-//@Profile("local")
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetService petService;
