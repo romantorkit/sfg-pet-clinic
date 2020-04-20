@@ -33,19 +33,22 @@ public class DataLoader implements CommandLineRunner {
     private final PetService petService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     public DataLoader(ConfigurableApplicationContext context,
                       OwnerService ownerService,
                       VetService vetService,
                       PetService petService,
                       PetTypeService petTypeService,
-                      SpecialityService specialityService) {
+                      SpecialityService specialityService,
+                      VisitService visitService) {
         this.context = context;
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petService = petService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @PostConstruct
@@ -104,6 +107,16 @@ public class DataLoader implements CommandLineRunner {
         pet2.setOwner(owner2);
         ownerService.save(owner2);
         System.out.println(owner2.toString());
+
+        Visit pet2Visit = new Visit();
+        pet2Visit.setPet(pet2);
+        pet2Visit.setVisitDate(LocalDate.now());
+        pet2Visit.setDescription("Sneezy Kitty");
+        visitService.save(pet2Visit);
+        System.out.println(pet2Visit.toString());
+
+        pet2.getVisits().add(pet2Visit);
+        petService.save(pet2);
 
         Owner owner3 = new Owner();
         owner3.setFirstName(firstName);

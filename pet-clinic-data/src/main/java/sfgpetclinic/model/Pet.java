@@ -1,5 +1,6 @@
 package sfgpetclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Pet extends BaseEntity{
     @JoinColumn(name = "pet_type_id")
     private PetType petType;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "owner_id")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

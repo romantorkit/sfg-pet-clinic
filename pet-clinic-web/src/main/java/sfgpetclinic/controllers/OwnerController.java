@@ -1,5 +1,6 @@
 package sfgpetclinic.controllers;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,5 +21,10 @@ public class OwnerController {
     public String listOwners(Model model) {
         model.addAttribute("owners", ownerService.findAll());
         return "owners/index";
+    }
+
+    @GetMapping({"/data"})
+    public ResponseEntity owners() {
+        return ResponseEntity.ok(ownerService.findAll());
     }
 }
