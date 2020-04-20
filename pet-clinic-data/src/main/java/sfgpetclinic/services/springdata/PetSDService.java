@@ -8,7 +8,7 @@ import sfgpetclinic.services.PetService;
 import java.util.Set;
 
 @Service
-@Profile("springdata")
+@Profile({"default","springdata"})
 public class PetSDService implements PetService {
     @Override
     public Set<Pet> findAll() {

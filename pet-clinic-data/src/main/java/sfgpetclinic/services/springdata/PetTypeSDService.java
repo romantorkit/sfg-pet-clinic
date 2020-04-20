@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Profile("springdata")
+@Profile({"default","springdata"})
 public class PetTypeSDService implements PetTypeService {
 
     private final PetTypeRepository petTypeRepository;

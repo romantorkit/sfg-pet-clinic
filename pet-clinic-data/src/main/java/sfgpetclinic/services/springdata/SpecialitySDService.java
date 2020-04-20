@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Profile("springdata")
+@Profile({"default","springdata"})
 public class SpecialitySDService implements SpecialityService {
 
     private final SpecialityRepository specialityRepository;
