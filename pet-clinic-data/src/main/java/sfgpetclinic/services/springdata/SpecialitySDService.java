@@ -7,6 +7,7 @@ import sfgpetclinic.repositories.SpecialityRepository;
 import sfgpetclinic.services.SpecialityService;
 
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 @Service
@@ -28,7 +29,7 @@ public class SpecialitySDService implements SpecialityService {
 
     @Override
     public Speciality findById(Long id) {
-        return specialityRepository.findById(id).orElse(null);
+        return specialityRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override

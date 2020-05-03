@@ -7,6 +7,7 @@ import sfgpetclinic.repositories.VetRepository;
 import sfgpetclinic.services.VetService;
 
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 @Service
@@ -28,7 +29,7 @@ public class VetSDService implements VetService {
 
     @Override
     public Vet findById(Long id) {
-        return vetRepository.findById(id).orElse(null);
+        return vetRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override

@@ -16,7 +16,6 @@ import java.util.Set;
 @Table(name = "owners")
 @Getter
 @Setter
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Owner extends Person {
@@ -25,4 +24,31 @@ public class Owner extends Person {
     private String telephone;
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private Set<Pet> pets = new HashSet<>();
+
+    public Owner() {
+        super();
+    }
+
+    @Builder
+    public Owner(Long id, String firstName, String lastName, Set<Pet> pets) {
+        super(id, firstName, lastName);
+
+        if(pets != null) {
+            this.pets = pets;
+        }
+    }
+
+    @Builder
+    public Owner(Long id, String firstName, String lastName, String address, String city,
+                 String telephone, Set<Pet> pets) {
+        super(id, firstName, lastName);
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+
+        if(pets != null) {
+            this.pets = pets;
+        }
+    }
+
 }

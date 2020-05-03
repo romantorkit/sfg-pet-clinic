@@ -1,10 +1,7 @@
 package sfgpetclinic.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +14,16 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode
 @ToString
+@NoArgsConstructor
 public class BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public BaseEntity(Long id) {
+        this.id = id;
+    }
 
     @JsonIgnore
     public boolean isNew(){

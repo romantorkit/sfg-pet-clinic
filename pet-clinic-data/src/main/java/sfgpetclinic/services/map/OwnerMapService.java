@@ -8,6 +8,7 @@ import sfgpetclinic.services.OwnerService;
 import sfgpetclinic.services.PetService;
 import sfgpetclinic.services.PetTypeService;
 
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 @Service
@@ -68,6 +69,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException());
     }
 }

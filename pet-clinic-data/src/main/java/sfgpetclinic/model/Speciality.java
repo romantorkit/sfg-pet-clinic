@@ -1,6 +1,9 @@
 package sfgpetclinic.model;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,11 +12,17 @@ import javax.persistence.Table;
 @Table(name = "specialities")
 @Getter
 @Setter
-@NoArgsConstructor
-@RequiredArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Speciality extends BaseEntity{
-    @NonNull
+
     private String description;
+
+    public Speciality() {
+    }
+
+    public Speciality(Long id, String description) {
+        super(id);
+        this.description = description;
+    }
 }

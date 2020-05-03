@@ -7,6 +7,7 @@ import sfgpetclinic.repositories.VisitRepository;
 import sfgpetclinic.services.VisitService;
 
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 @Service
@@ -28,7 +29,7 @@ public class VisitSDService implements VisitService {
 
     @Override
     public Visit findById(Long id) {
-        return visitRepository.findById(id).orElse(null);
+        return visitRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override

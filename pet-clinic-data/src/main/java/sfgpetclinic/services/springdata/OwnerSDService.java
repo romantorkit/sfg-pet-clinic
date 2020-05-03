@@ -7,6 +7,7 @@ import sfgpetclinic.repositories.OwnerRepository;
 import sfgpetclinic.services.OwnerService;
 
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 @Service
@@ -33,7 +34,7 @@ public class OwnerSDService implements OwnerService {
 
     @Override
     public Owner findById(Long id) {
-        return ownerRepository.findById(id).orElse(null);
+        return ownerRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override

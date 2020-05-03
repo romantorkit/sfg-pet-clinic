@@ -18,4 +18,9 @@ import javax.persistence.Table;
 @ToString(callSuper = true)
 public class PetType extends BaseEntity{
     private String typeName;
+
+    public PetType(Long id, String typeName) {
+        super(id);
+        this.typeName = typeName;
+    }
 }
